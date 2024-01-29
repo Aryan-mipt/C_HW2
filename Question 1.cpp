@@ -17,7 +17,15 @@ class fraction {
     }
 
 public:
-    fraction() : num(0), den(1) {}
+    fraction(int nm, int dn) : num(nm), den(dn) {
+        if (den == 0) {
+            cerr << "Error: Denominator cannot be zero. Setting fraction to 0/1." << endl;
+            num = 0;
+            den = 1;
+        } else {
+            smpl();
+        }
+    }
 
     fraction& operator+=(const fraction& other) {
         num = num * other.den + other.num * den;
